@@ -5,14 +5,14 @@
 
 # DCGAN with Powerful-Lightweight Boilerplate
 > ### written by Eungbean Lee  
-> 이 프로젝트는 연세대학교 어영정 교수님의 '[GAN (AAI5007)](http://ysweb.yonsei.ac.kr:8888/curri120601/curri_pop2.jsp?&hakno=AAI5007&bb=01&sbb=00&domain=A&startyy=2020&hakgi=2&ohak=10750)'수업 과제 일환으로 제작되었습니다.
 >
 >[![Comet.ML: experiments](https://img.shields.io/badge/Comet.ml-experiments-orange.svg?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAhpJREFUOI2Nk01IVGEUhp/zzfW3sUgllUIEzVApS2JyIwStylYmlC3EWvWzcNGyhdAqiGpZy4ja2UYMrBgoatnCTCNRJBxBpNE0bcbx3rlviyycScF3d+B93nMO33eMPEkiRLEs9BRgdYDzUSKCDTl4bWY5/pwqlJoNBkllmjZevWVjYgrzA37V13LgwjnYUzwH9JlZPL8xodQlSWsPHynJES3VnFTiYLvelcQ0QptGiEl+Vpvqz5kglBoMplZvXsP/8J5I+X5WffiWFMpECANHai5Bx2ScaGPdX/asmY14kgAG088eE0y9IdJYSSif+ek03uJP/KQjRJR3tG+FAZ5IqrZAaowQTK5c2gv7GjEzFhPfsdPXqbnchzmPTHKJsqNN/60NdHtBSK99jkNlGoumMGUoPXaFqhu3/7kKa6q2gwHOuyJHbbY0pOjiLbyWNojOUtHVuxOQr1oHECy8xJ+5T6S1haLOu7gSt9sAXChmS07dofDEAwoarpJd/YorrdwtP+s2Ap6yNIqLHiKYeYEyK6yP3gPC3QQM2+Yzjq5/HGj1Ko4TqahHmR+4gkKIHgZvx2kWgGpnZqQDuovrO7HiMswV4pbjkJ2H9Bikxzf92fyAvpy7yAR/vrKmB6TUuLQ8LCWfS6kxKTUh+Qvaov78NAAkNUv6IklaiUtrn6RsaiuYkHRmK2PbhADE/ICeAo86wAEJYIhtzvk3y+cYpafNe/QAAAAASUVORK5CYII=)](https://www.comet.ml/eungbean/dcgan/4b5175430fa0445aa656516bbfa77fe5?experiment-tab=panels) [![CodeFactor](https://www.codefactor.io/repository/github/eungbean/dcgan-pytorch-lightning-comet/badge)](https://www.codefactor.io/repository/github/eungbean/dcgan-pytorch-lightning-comet) [![codecov](https://codecov.io/gh/eungbean/DCGAN-pytorch-lightning-comet/branch/master/graph/badge.svg)](https://codecov.io/gh/eungbean/DCGAN-pytorch-lightning-comet) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) [![Docker Automated build](https://img.shields.io/docker/automated/eungbean/dcgan-pytorch-lightning??style=plastic&logo=Docker)](https://hub.docker.com/repository/docker/eungbean/dcgan-pytorch-lightning/general)
-  
+>
+> 이 프로젝트는 연세대학교 어영정 교수님의 '[GAN (AAI5007)](http://ysweb.yonsei.ac.kr:8888/curri120601/curri_pop2.jsp?&hakno=AAI5007&bb=01&sbb=00&domain=A&startyy=2020&hakgi=2&ohak=10750)'수업 과제 일환으로 제작되었습니다.
+>
 
 ### The lightweight PyTorch boilerplate for efficient and high-performance AI research.
-
-### Configure, scale and track your models.
+### "Configure, scale and track your models."
 
 
 
@@ -44,22 +44,24 @@
 </tbody>
 </table>
 
-### Super-clean and easy-configurable code equipped with variety state-of-arts high-level tools for deep learning.
+### Super-clean and easy-configurable code 
+### equipped with variety state-of-arts high-level tools for deep learning.
 
-</div>
+</div
 
-* Implemantation of DCGAN written in pytorch
-* Super-clean and easy-configurable code equipped with variety state-of-arts high-level tools for deep learning.
-    - [`Docker`](https://hub.docker.com/repository/docker/eungbean/dcgan-pytorch-lightning/general) 👨‍💻 + 🐳 = 💕
-    - [`Pytorch-lightning`](https://github.com/PyTorchLightning/pytorch-lightning), The lightweight PyTorch wrapper for high-performance AI research.
-    - [`Comet.ml`](comet.ml) provides a self-hosted and cloud-based meta ML platform allowing to track and optimize experiments and models.
-    - [`YACS`](https://www.google.co.kr/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwii3bWCsu7rAhWKad4KHcbWC5MQFjAAegQIBRAB&url=https%3A%2F%2Fgithub.com%2Frbgirshick%2Fyacs&usg=AOvVaw3Td1x5-hFSRnthL3GaGyh3) is designed to be simple configuration management system for academic and industrial research projects.
-    - [`Albumentation`](https://github.com/albumentations-team/albumentations) is a fast image augmentation library and easy to use wrapper around other libraries.
-
-
-
+- [`Comet.ml`](comet.ml) provides a self-hosted and cloud-based meta ML platform allowing to track and optimize experiments and models.
+- [`Docker`](https://hub.docker.com/repository/docker/eungbean/dcgan-pytorch-lightning/general) 👨‍💻 + 🐳 = 💕
+- [`Pytorch-lightning`](https://github.com/PyTorchLightning/pytorch-lightning), The lightweight PyTorch wrapper for high-performance AI research.
+- [`YACS`](https://www.google.co.kr/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwii3bWCsu7rAhWKad4KHcbWC5MQFjAAegQIBRAB&url=https%3A%2F%2Fgithub.com%2Frbgirshick%2Fyacs&usg=AOvVaw3Td1x5-hFSRnthL3GaGyh3) is designed to be simple configuration management system for academic and industrial research projects.
+- [`Albumentation`](https://github.com/albumentations-team/albumentations) is a fast image augmentation library and easy to use wrapper around other libraries.
 
 ---
+
+
+<div align="center">
+<img src="https://spzone-simpleprogrammer.netdna-ssl.com/wp-content/uploads/2018/08/clean-code-principles-square-768x768.png" width=300>
+</div>
+
 
 이 프로젝트는 Pytorch를 기반으로 다양한 High-level 라이브러리를 사용합니다.
 추후 Boilerplate Template으로 Refactor 후 배포될 예정입니다.
@@ -75,6 +77,7 @@
 - a playground notebook 역시 포함해 적용해 빠른 코딩에 앞서 테스트 후 적용이 가능합니다.
 
 ---
+# Instruction
 ## Setup Docker (Linux / Mac)
 ### Configure your custom variables
 1. ```./docker/Dockerfile.dev``` 파일을 열어 SSH 비밀번호를 설정해줍니다.
