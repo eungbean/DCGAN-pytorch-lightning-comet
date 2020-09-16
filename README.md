@@ -1,43 +1,41 @@
 
 <!-- ## Deep Learning Clean Template For A.I. Researcher -->
 
-## DCGAN in 100-Days-of-GAN
+<div align="center">
+
+## DCGAN with Powerful-Lightweight Boilerplate
 ---
 
-> written by Eungbean Lee  
+> ## written by Eungbean Lee  
 > 이 프로젝트는 연세대학교 어영정 교수님의 '[GAN (AAI5007)](http://ysweb.yonsei.ac.kr:8888/curri120601/curri_pop2.jsp?&hakno=AAI5007&bb=01&sbb=00&domain=A&startyy=2020&hakgi=2&ohak=10750)'수업 과제 일환으로 제작되었습니다.
+>
+>[![Comet.ML: experiments](https://img.shields.io/badge/Comet.ml-experiments-orange.svg?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAhpJREFUOI2Nk01IVGEUhp/zzfW3sUgllUIEzVApS2JyIwStylYmlC3EWvWzcNGyhdAqiGpZy4ja2UYMrBgoatnCTCNRJBxBpNE0bcbx3rlviyycScF3d+B93nMO33eMPEkiRLEs9BRgdYDzUSKCDTl4bWY5/pwqlJoNBkllmjZevWVjYgrzA37V13LgwjnYUzwH9JlZPL8xodQlSWsPHynJES3VnFTiYLvelcQ0QptGiEl+Vpvqz5kglBoMplZvXsP/8J5I+X5WffiWFMpECANHai5Bx2ScaGPdX/asmY14kgAG088eE0y9IdJYSSif+ek03uJP/KQjRJR3tG+FAZ5IqrZAaowQTK5c2gv7GjEzFhPfsdPXqbnchzmPTHKJsqNN/60NdHtBSK99jkNlGoumMGUoPXaFqhu3/7kKa6q2gwHOuyJHbbY0pOjiLbyWNojOUtHVuxOQr1oHECy8xJ+5T6S1haLOu7gSt9sAXChmS07dofDEAwoarpJd/YorrdwtP+s2Ap6yNIqLHiKYeYEyK6yP3gPC3QQM2+Yzjq5/HGj1Ko4TqahHmR+4gkKIHgZvx2kWgGpnZqQDuovrO7HiMswV4pbjkJ2H9Bikxzf92fyAvpy7yAR/vrKmB6TUuLQ8LCWfS6kxKTUh+Qvaov78NAAkNUv6IklaiUtrn6RsaiuYkHRmK2PbhADE/ICeAo86wAEJYIhtzvk3y+cYpafNe/QAAAAASUVORK5CYII=)](https://www.comet.ml/eungbean/dcgan/4b5175430fa0445aa656516bbfa77fe5?experiment-tab=panels) [![CodeFactor](https://www.codefactor.io/repository/github/eungbean/dcgan-pytorch-lightning-comet/badge)](https://www.codefactor.io/repository/github/eungbean/dcgan-pytorch-lightning-comet) [![codecov](https://codecov.io/gh/eungbean/DCGAN-pytorch-lightning-comet/branch/master/graph/badge.svg)](https://codecov.io/gh/eungbean/DCGAN-pytorch-lightning-comet) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) [![Docker Automated build](https://img.shields.io/docker/automated/eungbean/dcgan-pytorch-lightning??style=plastic&logo=Docker)](https://hub.docker.com/repository/docker/eungbean/dcgan-pytorch-lightning/general)
+  
 
-<!-- <style>
-table{
-    width: 90% ;
-    border-top: 1px solid #ddd;
+## The lightweight PyTorch boilerplate for efficient and high-performance AI research.
 
-}
-th, td {
-  text-align: center;
-  vertical-align: center;
-  border-bottom: 1px solid #ddd; 
-}
-</style> -->
+## Configure, scale and track your models.
+
+
 
 <table class="center" style="text-align: center">
 <tbody>
 <tr>
-<td align="center">Monitor & Tracking</td>
+<td align="center"> <h3> Monitor & Tracking</td>
 <td align="center" colspan=2><img src="https://www.comet.ml/images/logo_comet_light.png" alt="" height="60" /></br>cloud-based ML Platform</td>
 <td align="center" colspan=2><img src="https://docs.ray.io/en/latest/_images/tune.png" height="60"></br>Scalable Parameter Tuning</td>
 </tr>
 
   
 <tr height=200>
-<td align="center">Experiment</td>
+<td align="center"><h3>Experiment</td>
 <td align="center" colspan=3><img src="https://www.learnopencv.com/wp-content/uploads/2020/05/PTL.png" alt="" height="120" /></td>
 <td align="center"><img src="https://www.docker.com/sites/default/files/d8/styles/role_icon/public/2019-07/vertical-logo-monochromatic.png?itok=erja9lKc" height="60"></td>
 </tr>
 
   
 <tr>
-<td align="center">Configuration & Preperation</td>
+<td align="center"><h3>Configuration & Preperation</td>
 <td align="center"><img src="https://albumentations.ai/docs/images/logo.png" width=50></br>Image Augmentation</td>
 <td align="center"><yacs style="font-size:40px; font-weight:bold;">YACS</yacs></br>Variable Configuration</td>
 <td align="center"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Jupyter_logo.svg/883px-Jupyter_logo.svg.png" height="60"></br>Quick Test/Play Around</td>
@@ -47,11 +45,11 @@ th, td {
 
 </tbody>
 </table>
-
-
 ---
 
-[![Comet.ML: experiments](https://img.shields.io/badge/Comet.ml-experiments-orange.svg?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAhpJREFUOI2Nk01IVGEUhp/zzfW3sUgllUIEzVApS2JyIwStylYmlC3EWvWzcNGyhdAqiGpZy4ja2UYMrBgoatnCTCNRJBxBpNE0bcbx3rlviyycScF3d+B93nMO33eMPEkiRLEs9BRgdYDzUSKCDTl4bWY5/pwqlJoNBkllmjZevWVjYgrzA37V13LgwjnYUzwH9JlZPL8xodQlSWsPHynJES3VnFTiYLvelcQ0QptGiEl+Vpvqz5kglBoMplZvXsP/8J5I+X5WffiWFMpECANHai5Bx2ScaGPdX/asmY14kgAG088eE0y9IdJYSSif+ek03uJP/KQjRJR3tG+FAZ5IqrZAaowQTK5c2gv7GjEzFhPfsdPXqbnchzmPTHKJsqNN/60NdHtBSK99jkNlGoumMGUoPXaFqhu3/7kKa6q2gwHOuyJHbbY0pOjiLbyWNojOUtHVuxOQr1oHECy8xJ+5T6S1haLOu7gSt9sAXChmS07dofDEAwoarpJd/YorrdwtP+s2Ap6yNIqLHiKYeYEyK6yP3gPC3QQM2+Yzjq5/HGj1Ko4TqahHmR+4gkKIHgZvx2kWgGpnZqQDuovrO7HiMswV4pbjkJ2H9Bikxzf92fyAvpy7yAR/vrKmB6TUuLQ8LCWfS6kxKTUh+Qvaov78NAAkNUv6IklaiUtrn6RsaiuYkHRmK2PbhADE/ICeAo86wAEJYIhtzvk3y+cYpafNe/QAAAAASUVORK5CYII=)](https://www.comet.ml/eungbean/dcgan/4b5175430fa0445aa656516bbfa77fe5?experiment-tab=panels) [![CodeFactor](https://www.codefactor.io/repository/github/eungbean/dcgan-pytorch-lightning-comet/badge)](https://www.codefactor.io/repository/github/eungbean/dcgan-pytorch-lightning-comet) [![codecov](https://codecov.io/gh/eungbean/DCGAN-pytorch-lightning-comet/branch/master/graph/badge.svg)](https://codecov.io/gh/eungbean/DCGAN-pytorch-lightning-comet) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) [![Docker Automated build](https://img.shields.io/docker/automated/eungbean/dcgan-pytorch-lightning??style=plastic&logo=Docker)](https://hub.docker.com/repository/docker/eungbean/dcgan-pytorch-lightning/general)
+## Super-clean and easy-configurable code equipped with variety state-of-arts high-level tools for deep learning.
+
+</div>
 
 * Implemantation of DCGAN written in pytorch
 * Super-clean and easy-configurable code equipped with variety state-of-arts high-level tools for deep learning.
