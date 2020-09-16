@@ -10,7 +10,9 @@ RUN apt-get update -y && \
     apt-get install -y \
     wget curl git python3-dev
 
+WORKDIR /CODE
 COPY docker/requirements.txt /code/requirements.txt
+
 
 #Install pip packages
 RUN pip install --upgrade pip
