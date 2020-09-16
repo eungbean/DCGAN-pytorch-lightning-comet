@@ -29,6 +29,5 @@ albumentations
 
 #Eungbean's
 pytorch-lightning
-pip install pytorch-lightning-bolts
 wandb
 yacs
