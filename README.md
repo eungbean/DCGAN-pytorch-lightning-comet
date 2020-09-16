@@ -20,7 +20,7 @@ th, td {
 }
 </style> -->
 
-<table class="center">
+<table class="center" style="text-align: center">
 <tbody>
 <tr>
 <td>Monitor & Tracking</td>
