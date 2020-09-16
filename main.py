@@ -23,8 +23,8 @@ from tools.utils import weights_init
 
 # load configurations
 _C = load_config()
-_C.merge_from_file(".private/secrets.yaml")
-_C.freeze()
+# _C.merge_from_file(".private/secrets.yaml")
+# _C.freeze()
 
 """
 Each project goes into a LightningModule.
@@ -78,7 +78,7 @@ class DCGAN(pl.LightningModule):
     def training_step(self, batch, batch_idx, optimizer_idx):
         imgs, _ = batch
         b_size = imgs.shape[0]
-        if isinstance(self.z_log, imgs):
+        if type(self.z_log) != type(imgs):
             self.z_log = self.z_log.type_as(imgs)
 
         ## Update Generator network
