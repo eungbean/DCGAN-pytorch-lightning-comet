@@ -1,0 +1,34 @@
+##Template's
+dataclasses
+imgaug
+numpy
+torchvision
+#torch
+comet_ml
+matplotlib
+torchsummary
+Poutyne
+##clean code's
+black
+jupyter
+mypy
+nose-watch
+nose
+pandas
+pylint
+rednose
+rope
+scikit-learn
+seaborn
+
+# nose-watch's dependencies
+PyYAML
+argh
+fun
+albumentations
+
+#Eungbean's
+pytorch-lightning
+pip install pytorch-lightning-bolts
+wandb
+yacs
