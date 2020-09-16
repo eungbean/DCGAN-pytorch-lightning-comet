@@ -13,18 +13,19 @@
 
 * Implemantation of DCGAN written in pytorch
 * Super-clean and easy-configurable code equipped with variety state-of-arts high-level tools for deep learning.
-    - `Docker`
-    - `Pytorch-lightning`, The lightweight PyTorch wrapper for high-performance AI research.
-    - `Comet.ml` provides a self-hosted and cloud-based meta ML platform allowing to track and optimize experiments and models.
-    - `YACS` is designed to be simple configuration management system for academic and industrial research projects.
-    - `Albumentation` is a fast image augmentation library and easy to use wrapper around other libraries.
+    - [`Docker`]() 👨‍💻 + 🐳 = 💕
+    - [`Pytorch-lightning`](https://github.com/PyTorchLightning/pytorch-lightning), The lightweight PyTorch wrapper for high-performance AI research.
+    - [`Comet.ml`](comet.ml) provides a self-hosted and cloud-based meta ML platform allowing to track and optimize experiments and models.
+    - [`YACS`](https://www.google.co.kr/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwii3bWCsu7rAhWKad4KHcbWC5MQFjAAegQIBRAB&url=https%3A%2F%2Fgithub.com%2Frbgirshick%2Fyacs&usg=AOvVaw3Td1x5-hFSRnthL3GaGyh3) is designed to be simple configuration management system for academic and industrial research projects.
+    - [`Albumentation`](https://github.com/albumentations-team/albumentations) is a fast image augmentation library and easy to use wrapper around other libraries.
 
 
 
 
-이 프로젝트는 Pytorch를 기반으로 바닥부터 구현하였습니다.
+---
+
+이 프로젝트는 Pytorch를 기반으로 다양한 High-level 라이브러리를 사용합니다.
 추후 Boilerplate Template으로 Refactor 후 배포될 예정입니다.
-
 본 코드는 아래의 특징을 모토로 설계하였습니다. 
 
 - `Dev Productivity`: - 어떤 환경에서도 5분 안에 실행할 수 있습니다. Docker를 사용해 더이상 "안돌아가요!!"라는 issue를 듣지 않아도 됩니다.
@@ -37,6 +38,56 @@
 - a playground notebook 역시 포함해 적용해 빠른 코딩에 앞서 테스트 후 적용이 가능합니다.
 
 ---
+## Setup Docker (Linux / Mac)
+### Configure your custom variables
+1. ```./docker/Dockerfile.dev``` 파일을 열어 SSH 비밀번호를 설정해줍니다.
+
+```dockerfile
+ENV SSHPASSWD "MY_PASSWORD"
+```
+
+2. ```./docker/settings.sh ``` 파일을 열어 데이터셋의 경로 등을 설정해줍니다.
+
+```shell
+#================================================
+#Configure Path
+DATASET_DIR=${PROJ_DIR}/dataset # Your dataset path
+OUTPUT_DIR=${PROJ_DIR}/output # Your output path : weight, log, checkpoint, predictions..
+
+#Configure Settings
+IMAGE="100daysGAN" 		# Image name
+CONTAINER="100daysGAN" 	# Container name
+GPUS="all"		# "all", "0,1,2..", "none"
+JUPYTER_PORT_H=18888 	# jupyter port
+DEFAULT_PORT_H=10022 	# SSH port
+TB_PORT_H = 16006 		# TensorBoard port
+#================================================
+```
+
+### Build/Run/Exec Docker
+```sh
+# ensure you are in DCGAN repository
+# Build the docker image
+./docker/build.sh
+
+# Run the docker container
+./docker/run.sh
+
+# Attatch into contaier
+./docker/exec.sh
+```
+
+## Configurate the Model / Training / Setting Parameters
+
+
+
+```sh
+
+```
+
+##
+
+### References
 
 이 프로젝트를 구현하는데 도움을 받은 `Github Project`/`Blog Post`는 다음과 같습니다.
 - [clean-code-ml](https://github.com/davified/clean-code-ml) by David Tan

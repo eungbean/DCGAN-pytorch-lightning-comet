@@ -10,7 +10,7 @@ RUN apt-get update -y && \
     apt-get install -y \
     wget curl git python3-dev
 
-WORKDIR /Code/
+WORKDIR /code
 COPY docker/requirements.txt /code/requirements.txt
 
 
