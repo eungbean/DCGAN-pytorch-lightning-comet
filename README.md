@@ -23,25 +23,25 @@ th, td {
 <table class="center" style="text-align: center">
 <tbody>
 <tr>
-<td>Monitor & Tracking</td>
-<td colspan=2><img src="https://www.comet.ml/images/logo_comet_light.png" alt="" height="60" /></br>cloud-based ML Platform</td>
-<td colspan=2><img src="https://docs.ray.io/en/latest/_images/tune.png" height="60"></br>Scalable Parameter Tuning</td>
+<td align="center">Monitor & Tracking</td>
+<td align="center" colspan=2><img src="https://www.comet.ml/images/logo_comet_light.png" alt="" height="60" /></br>cloud-based ML Platform</td>
+<td align="center" colspan=2><img src="https://docs.ray.io/en/latest/_images/tune.png" height="60"></br>Scalable Parameter Tuning</td>
 </tr>
 
   
 <tr height=200>
-<td>Experiment</td>
-<td colspan=3><img src="https://www.learnopencv.com/wp-content/uploads/2020/05/PTL.png" alt="" height="120" /></td>
-<td><img src="https://www.docker.com/sites/default/files/d8/styles/role_icon/public/2019-07/vertical-logo-monochromatic.png?itok=erja9lKc" height="60"></td>
+<td align="center">Experiment</td>
+<td align="center" colspan=3><img src="https://www.learnopencv.com/wp-content/uploads/2020/05/PTL.png" alt="" height="120" /></td>
+<td align="center"><img src="https://www.docker.com/sites/default/files/d8/styles/role_icon/public/2019-07/vertical-logo-monochromatic.png?itok=erja9lKc" height="60"></td>
 </tr>
 
   
 <tr>
-<td>Configuration & Preperation</td>
-<td><img src="https://albumentations.ai/docs/images/logo.png" width=50></br>Image Augmentation</td>
-<td><yacs style="font-size:40px; font-weight:bold;">YACS</yacs></br>Variable Configuration</td>
-<td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Jupyter_logo.svg/883px-Jupyter_logo.svg.png" height="60"></br>Quick Test/Play Around</td>
-<td><img src="https://black.readthedocs.io/en/stable/_static/logo2.png" height="60"></br>Code Formatter</td>
+<td align="center">Configuration & Preperation</td>
+<td align="center"><img src="https://albumentations.ai/docs/images/logo.png" width=50></br>Image Augmentation</td>
+<td align="center"><yacs style="font-size:40px; font-weight:bold;">YACS</yacs></br>Variable Configuration</td>
+<td align="center"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Jupyter_logo.svg/883px-Jupyter_logo.svg.png" height="60"></br>Quick Test/Play Around</td>
+<td align="center"><img src="https://black.readthedocs.io/en/stable/_static/logo2.png" height="60"></br>Code Formatter</td>
 </tr>
 
 
