@@ -1,0 +1,55 @@
+FROM ufoym/deepo:all
+LABEL maintainer="Eungbean Lee" \
+    org.opencontainers.image.licenses="MIT"
+
+#CONFIGURE CUSTOM SETTING
+ARG SSHPASSWD "MY_PASSWORD"
+
+RUN apt-get update -y && \
+    apt-get upgrade -y && \
+    apt-get install -y \
+    wget curl git python3-dev
+
+COPY docker/requirements.txt /code/requirements.txt
+
+#Install pip packages
+RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
+
+# Install zsh
+# https://github.com/deluan/zsh-in-docker
+# RUN apt-get install -y zsh && \
+#     curl -L http://install.ohmyz.sh | sh  && \
+#     chsh -s `which zsh`
+# RUN chown root:staff -R /usr/local/share/zsh
+
+RUN ["apt-get", "update"]
+RUN ["apt-get", "install", "-y", "zsh"]
+RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh || true
+
+# Dockerize an SSH service to access from remote.
+# https://docs.docker.com/engine/examples/running_ssh_service/
+RUN apt-get install -y openssh-server
+RUN mkdir /var/run/sshd
+RUN echo 'root:${SSHPASSWD}' | chpasswd
+RUN sed -i 's/#*PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config
+
+# SSH login fix. Otherwise user is kicked off after login
+RUN sed -i 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' /etc/pam.d/sshd
+
+ENV NOTVISIBLE "in users profile"
+RUN echo "export VISIBLE=now" >> /etc/profile
+
+RUN service ssh start
+
+# Fail2ban configuration to prevent SSH brute force
+RUN apt-get install -y fail2ban && \
+    cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+
+# Add non-root user
+RUN adduser --disabled-password --gecos "" user
+RUN chmod -R 755 /usr/local/share/zsh/site-functions
+
+EXPOSE 22
+CMD ["/usr/sbin/sshd", "-D"]
+WORKDIR /code

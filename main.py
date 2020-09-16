@@ -77,7 +77,7 @@ class DCGAN(pl.LightningModule):
     def training_step(self, batch, batch_idx, optimizer_idx):
         imgs, _ = batch
         b_size = imgs.shape[0]
-        if type(self.z_log) != type(imgs):
+        if isinstance(self.z_log, imgs):
             self.z_log = self.z_log.type_as(imgs)
 
         ## Update Generator network
