@@ -1,9 +1,9 @@
-
 from pytorch_lightning.metrics.functional import accuracy
 
 # define a custom metric as a function
 def my_metric(y_true, y_pred):
     pass
+
 
 # or as a class when we need to accumulate
 class MyAccuracy(accuracy):
@@ -13,8 +13,8 @@ class MyAccuracy(accuracy):
         Args:
             y_pred: The prediction of the model.
             y_true: Target to evaluate the model.
-        
-        # calculates accuracy across all GPUs and all Nodes used in training 
+
+        # calculates accuracy across all GPUs and all Nodes used in training
         """
         return accuracy(pred, target)
 
