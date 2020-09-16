@@ -1,33 +1,30 @@
-##Template's
+#Scientific Library
 dataclasses
-imgaug
 numpy
-torchvision
-#torch
-comet_ml
-matplotlib
-torchsummary
-Poutyne
-##clean code's
-black
-jupyter
-mypy
-nose-watch
-nose
-pandas
-pylint
-rednose
-rope
 scikit-learn
+matplotlib
+pandas
 seaborn
+jupyter
 
-# nose-watch's dependencies
+#torch Related
+torch
+torchvision
+
+# code-test
+black
+nose
+nose-watch
+mypy
 PyYAML
 argh
 fun
-albumentations
+rope
+pylint
+rope
 
 #Eungbean's
+albumentations
 pytorch-lightning
-wandb
 yacs
+comet_ml
