@@ -5,7 +5,7 @@
 ---
 
 > written by Eungbean Lee  
-> 이 프로젝트는 연세대학교 어영정 교수님의 '[GAN (AAI5007)](http://ysweb.yonsei.ac.kr:8888/curri120601/curri_pop2.jsp?&hakno=AAI5007&bb=01&sbb=00&domain=A&startyy=2020&hakgi=2&ohak=10750)'수업과 함께 진행되었습니다.
+> 이 프로젝트는 연세대학교 어영정 교수님의 '[GAN (AAI5007)](http://ysweb.yonsei.ac.kr:8888/curri120601/curri_pop2.jsp?&hakno=AAI5007&bb=01&sbb=00&domain=A&startyy=2020&hakgi=2&ohak=10750)'수업 과제 일환으로 제작되었습니다.
 
 <!-- <style>
 table{
