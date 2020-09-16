@@ -3,7 +3,7 @@ LABEL maintainer="Eungbean Lee" \
     org.opencontainers.image.licenses="MIT"
 
 #CONFIGURE CUSTOM SETTING
-ARG SSHPASSWD "MY_PASSWORD"
+ENV SSHPASSWD "MY_PASSWORD"
 
 RUN apt-get update -y && \
     apt-get upgrade -y && \
