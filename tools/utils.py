@@ -1,5 +1,7 @@
+import os
 import torch
 import torch.nn as nn
+import torchvision
 
 # custom weights initialization called on netG and netD
 def weights_init(m):
@@ -14,3 +16,11 @@ def weights_init(m):
 def experiment_subdir(exp_title, exp_id):
     assert 0 <= exp_id <= 9999
     return f"{exp_title}_{exp_id:04d}"
+
+
+def save_img_grid(self,_C):
+    self.grid_path = os.path.join(
+        _C.OUTPUT.PREDICTION_ROOT, f"epoch {self.current_epoch}.png"
+        )
+    grid = torchvision.utils.make_grid(self.g_img_log, nrow=10)
+    torchvision.utils.save_image(grid, self.grid_path)

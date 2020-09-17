@@ -35,7 +35,7 @@
 <tr>
 <td align="center"><h3>Configuration & Preperation</td>
 <td align="center"><img src="https://albumentations.ai/docs/images/logo.png" width=50></br>Image Augmentation</td>
-<td align="center"><yacs style="font-size:40px; font-weight:bold;">YACS</yacs></br>Variable Configuration</td>
+<td align="center"><yacs style="font-size:40px; font-weight:bold;">"YACS"</yacs></br>Variable Configuration</td>
 <td align="center"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Jupyter_logo.svg/883px-Jupyter_logo.svg.png" height="60"></br>Quick Test/Play Around</td>
 <td align="center"><img src="https://black.readthedocs.io/en/stable/_static/logo2.png" height="60"></br>Code Formatter</td>
 </tr>
@@ -44,7 +44,7 @@
 </tbody>
 </table>
 
-### Super-clean and easy-configurable code 
+### Super-clean and easy-configurable code
 ### equipped with variety state-of-arts high-level tools for deep learning.
 
 </div
@@ -63,44 +63,44 @@
 </div>
 
 
-이 프로젝트는 Pytorch를 기반으로 다양한 High-level 라이브러리를 사용합니다.
-추후 Boilerplate Template으로 Refactor 후 배포될 예정입니다.
-본 코드는 아래의 특징을 모토로 설계하였습니다. 
+이 프로젝트는 Pytorch를 기반으로 다양한 High-level 라이브러리를 사용합니다.  
+추후 Boilerplate Template으로 Refactor 후 배포될 예정입니다.  
+본 코드는 아래의 특징을 모토로 설계하였습니다.   
 
-- `Dev Productivity`: - 어떤 환경에서도 5분 안에 실행할 수 있습니다. Docker를 사용해 더이상 "안돌아가요!!"라는 issue를 듣지 않아도 됩니다.
+- `Reproduciblity`: Docker를 사용해 어떤 환경에서든지 5분 안에 실행할 수 있습니다.
 - `Clean Coding`: 단순함과 직관성. [Clean Coding Rule](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882)을 준수하려고 노력하였습니다.
 - `modularity`: 각자의 기능이 다른 조각들을 서로 다른 파이썬 sub module로 분리하였습니다.
 - `data-augmentation`: [Albumentation](https://github.com/albumentations-team/albumentations) 패키지를 포함했습니다.
 - `ready to go`: 혁신적인 [pytorch-lightning](https://github.com/PyTorchLightning/pytorch-lightning) 라이브러리를 사용해 train loop을 쓰지 않아도 됩니다.
-- [Comet.ml](https://www.comet.ml/) 을 내장했습니다. ID만 입력하면 모든 학습현황, 파라메터를 실시간으로 모니터링 할 수 있습니다.
-- python [logging](https://docs.python.org/3/library/logging.html) module을 사용해 logging을 할 수 있어 SSH등의 상황에서 터미널 연결이 끊겨도 추적이 가능합니다.
-- a playground notebook 역시 포함해 적용해 빠른 코딩에 앞서 테스트 후 적용이 가능합니다.
+- [Comet.ml](https://www.comet.ml/) 을 내장했습니다. ID만 입력하면 모든 학습현황을 모니터링 할 수 있습니다.
+- `Test-Produce-Go`: Jupyter Notebook으로 빠르게 테스트 후 적용이 가능합니다.
 
 ---
 # Instruction
 ## Setup Docker (Linux / Mac)
-### Configure your custom variables
-1. ```./docker/Dockerfile.dev``` 파일을 열어 SSH 비밀번호를 설정해줍니다.
+### 1) Configure your custom variables
+1. ```./docker/Dockerfile.dev```에서 컨테이너에 접속하기 위한 SSH password를 설정해줍니다.
 
 ```dockerfile
 ENV SSHPASSWD "MY_PASSWORD"
 ```
 
-2. ```./docker/settings.sh ``` 파일을 열어 데이터셋의 경로 등을 설정해줍니다.
+2. ```./docker/settings.sh ``` 에서 Dataset과 Output (Optional)의 경로를 설정해줍니다.
 
-```shell
+```sh
+#DEFAULT CONFIGURATION
 #================================================
 #Configure Path
 DATASET_DIR=${PROJ_DIR}/dataset # Your dataset path
 OUTPUT_DIR=${PROJ_DIR}/output # Your output path : weight, log, checkpoint, predictions..
 
 #Configure Settings
-IMAGE="100daysGAN" 		# Image name
-CONTAINER="100daysGAN" 	# Container name
-GPUS="all"		# "all", "0,1,2..", "none"
+IMAGE="100daysgan" 		# Image name
+CONTAINER="100daysgan" 	# Container name
+GPUS="all"	            # "all", "0,1,2..", "none"
 JUPYTER_PORT_H=18888 	# jupyter port
 DEFAULT_PORT_H=10022 	# SSH port
-TB_PORT_H = 16006 		# TensorBoard port
+TB_PORT_H=16006 		# TensorBoard port
 #================================================
 ```
 

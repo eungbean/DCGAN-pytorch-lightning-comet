@@ -1,6 +1,6 @@
 from yacs.config import CfgNode as CN
 from pathlib import Path
-
+from sklearn.metrics import accuracy_score
 """
 I use YACS and Path library to config our model.
 YCAS: https://github.com/rbgirshick/yacs
@@ -29,11 +29,10 @@ _C.INPUT.DATASET_DIR = str(DATASET_DIR)
 
 # OUTPUT
 _C.OUTPUT = CN()
-_C.OUTPUT.LOG_ROOT = str(BASE_DIR / "output" / "logs")
-_C.OUTPUT.WEIGHT_ROOT = str(BASE_DIR / "output" / "weights")
-_C.OUTPUT.CHECKPOINT_ROOT = str(BASE_DIR / "output" / "checkpoints")
-_C.OUTPUT.PREDICTION_ROOT = str(BASE_DIR / "output" / "predictions")
-_C.SAVE_CHECKPOINTS = False  # True
+_C.OUTPUT.LOG_ROOT          = str(BASE_DIR / "output" / "logs")
+_C.OUTPUT.CHECKPOINT_ROOT   = str(BASE_DIR / "output" / "checkpoints")
+_C.OUTPUT.PREDICTION_ROOT   = str(BASE_DIR / "output" / "predictions")
+_C.SAVE_CHECKPOINTS         = False  # True
 _C.EXP_ID = 9999  # 0~9999
 
 # Model
@@ -46,7 +45,7 @@ _C.MODEL.NUM_C = 3
 
 # # Solver
 _C.SOLVER = CN()
-_C.SOLVER.EPOCHS = 500
+_C.SOLVER.EPOCHS = 1000
 _C.SOLVER.G_LR = 2e-4
 _C.SOLVER.D_LR = 1e-3
 _C.SOLVER.OPTIMIZER = "adam"  # ['adam', 'adamw']
@@ -107,6 +106,16 @@ _C.COMET.PROJECT_NAME = "MY_COMET_PROJECT_NAME"  # OPTIONAL
 _C.COMET.WORKSPACE = "MY_COMET_WORKSPACE"  # OPTIONAL
 # _C.COMET.REST_API_KEY   = "COMET_REST_KEY" #OPTIONAL
 
+## Configure a experiment on the Comet.ml frontend.
+## https://www.comet.ml/docs/python-sdk/Experiment/
+_C.COMET.LOG_STEP           = 100
+_C.COMET.LOG_CODE           = True  #Default(True)
+_C.COMET.LOG_GRAPH          = True  #Default(True)
+_C.COMET.AUTO_LOG_WEIGHT    = True  #Default(False)
+_C.COMET.AUTO_LOG_PARAM     = True  #Default(True)
+_C.COMET.AUTO_LOG_METRIC    = True  #Default(True)
+_C.COMET.AUTO_LOG_GRAPH     = True  #Default(False)
+_C.COMET.AUTO_LOG_OUTPUT    = "default" #Default("default") ["native", "simple", "default", False] 
 
 # MISC
 _C.MISC = CN()
