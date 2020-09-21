@@ -5,6 +5,7 @@ output/logs/*
 output/predictions/*
 output/weights/*
 output/checkpoints/*
+nohup.out
 
 # Private files
 .comet.config
