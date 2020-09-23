@@ -6,6 +6,7 @@ logging.basicConfig(level=level, format="%(asctime)s - [%(levelname)s] - %(messa
 
 
 def get_comet_logger(_C):
+
     comet_logger = CometLogger(
         disabled=_C.COMET.DISABLED,
         api_key=_C.COMET.APIKEY,

@@ -37,7 +37,7 @@ class CometGenerativeModelImageSampler(Callback):
 
         save_img_grid(imgs=images, PREDICTION_DIR=self.PRED_DIR)
         save_img_grid(imgs=images, PREDICTION_DIR=self.PRED_DIR_NORM, normalize=True)
-        
+
         self.comet_logger.experiment.log_image(
             image_data=self.PRED_DIR_NORM,
             name="Training_normalized",

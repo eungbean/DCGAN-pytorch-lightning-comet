@@ -15,9 +15,9 @@ from models.metrics.accuracy_CIFAR10 import accuracy
 from models.configs import load_default_config
 from tools.logger import get_comet_logger
 from models.callbacks import (
-    CheckpointCallback, 
-    CometGenerativeModelImageSampler
-    )
+    # CheckpointCallback,
+    CometGenerativeModelImageSampler,
+)
 from tools.utils import (
     weights_init,
     set_random_seed,
@@ -47,8 +47,6 @@ This module houses:
 6. What data to use (train_dataloader, val_dataloader, test_dataloader)
 """
 
-# Define Z for log to maintain consistency through whole experiments
-# z_log = torch.randn(100, _C.MODEL.NUM_Z, 1, 1)
 
 class DCGAN(pl.LightningModule):
 
@@ -151,26 +149,26 @@ class DCGAN(pl.LightningModule):
 
             return output
 
-    #For templete
-        # def on_epoch_end(self):
-        # pass
+    # For templete
+    # def on_epoch_end(self):
+    # pass
 
-        # What happens inside the validation loop (validation_step)
-        # But, How do we define validation loop in GAN?
+    # What happens inside the validation loop (validation_step)
+    # But, How do we define validation loop in GAN?
 
-        # def validation_step(self, batch, batch_idx, optimizer_idx):
-        #     pass # OPTIONAL
+    # def validation_step(self, batch, batch_idx, optimizer_idx):
+    #     pass # OPTIONAL
 
-        # def validation_epoch_end(self, outputs):
-        #     pass # OPTIONAL
+    # def validation_epoch_end(self, outputs):
+    #     pass # OPTIONAL
 
-        # def test_step(self, batch, batch_nb):
-        #     pass # OPTIONAL
+    # def test_step(self, batch, batch_nb):
+    #     pass # OPTIONAL
 
-        # def test_epoch_end(self, output):
-        #     pass #OPTIONAL
+    # def test_epoch_end(self, output):
+    #     pass #OPTIONAL
 
-        # What optimizer(s) to use (configure_optimizers)
+    # What optimizer(s) to use (configure_optimizers)
 
     def configure_optimizers(self):
         optimizerD = Adam(
@@ -201,7 +199,7 @@ trainer = pl.Trainer(
     min_epochs=1,
     max_epochs=_C.SOLVER.EPOCHS,
     logger=comet_logger,
-    checkpoint_callback=[CheckpointCallback],
+    # checkpoint_callback=CheckpointCallback,
     callbacks=[
         CometGenerativeModelImageSampler(_C, 100, comet_logger),
     ],

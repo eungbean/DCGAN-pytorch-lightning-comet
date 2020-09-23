@@ -44,7 +44,7 @@ _C.INPUT.MEAN_STD_DIR       = str(DATASET_DIR / "img_mean_std")
 
 # OUTPUT
 OUTPUT_FOLDER              = _C.EXP_TITLE + '_' + _C.INPUT.DATASET + '_' + timestamp('%y%m%d_%H-%M-%S')
-# OUTPUT_FOLDER              = _C.EXP_TITLE + '_' + _C.INPUT.DATASET + '_' + 'tmp'
+OUTPUT_FOLDER              = _C.EXP_TITLE + '_' + _C.INPUT.DATASET + '_' + 'tmp'
 _C.OUTPUT = CN()
 _C.OUTPUT.LOG_DIR          = str(BASE_DIR / "output" / OUTPUT_FOLDER / "logs")
 _C.OUTPUT.CHECKPOINT_DIR   = str(BASE_DIR / "output" / OUTPUT_FOLDER / "checkpoints")
@@ -120,6 +120,7 @@ _C.DATALOADER.TEST_SHUFFLE   = True
 # Comet Logger
 _C.COMET = CN()
 _C.COMET.DISABLED       = True # Disable Commet for Test
+# _C.COMET.DISABLED       = False # Disable Commet for Test
 _C.COMET.APIKEY         = "MY_COMET_APIKEY"
 _C.COMET.PROJECT_NAME   = "MY_COMET_PROJECT_NAME"   # OPTIONAL
 _C.COMET.WORKSPACE      = "MY_COMET_WORKSPACE"      # OPTIONAL
@@ -136,6 +137,7 @@ _C.COMET.AUTO_LOG_METRIC    = True  # Default(True)
 _C.COMET.AUTO_LOG_GRAPH     = True  # Default(False)
 _C.COMET.AUTO_LOG_OUTPUT    = "default" # Default("default") ["native", "simple", "default", False]
 
+_C.merge_from_file(str(BASE_DIR / "tools" /"logger"/"private.yaml"))
 
 def get_default_config():
     return _C.clone()

@@ -47,7 +47,7 @@ def make_output_folders(_C):
         folders.append(_C.OUTPUT.PREDICTION_DIR)
 
     if _C.SAVE_PREDICTIONS:
-        folders.append(_C.OUTPUT.PREDICTION_DIR+'_norm')
+        folders.append(_C.OUTPUT.PREDICTION_DIR + "_norm")
 
     for folder in folders:
         os.makedirs(folder, exist_ok=True)

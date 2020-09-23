@@ -1,0 +1,6 @@
+
+
+EXP_TITLE: "DCGAN-ZC_GP"
+
+COMET:
+    PROJECT_NAME: "dcgan-zerocenteredgp"

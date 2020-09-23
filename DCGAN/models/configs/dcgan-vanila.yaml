@@ -1,0 +1,5 @@
+EXP_TITLE: "DCGAN-Vanila"
+
+COMET:
+    PROJECT_NAME: "dcgan-vanila"
+
