@@ -15,9 +15,7 @@ from models.metrics.zeroCenteredGP import zeroCenteredGP
 
 from models.configs import load_default_config
 from tools.logger import get_comet_logger
-from models.callbacks import (
-    CometGenerativeModelImageSampler
-    )
+from models.callbacks import CometGenerativeModelImageSampler
 from tools.utils import (
     weights_init,
     set_random_seed,
@@ -46,6 +44,7 @@ This module houses:
 5. What optimizer(s) to use (configure_optimizers)
 6. What data to use (train_dataloader, val_dataloader, test_dataloader)
 """
+
 
 class DCGAN(pl.LightningModule):
 
@@ -78,7 +77,7 @@ class DCGAN(pl.LightningModule):
     def training_step(self, batch, batch_idx, optimizer_idx):
         imgs, _ = batch
         b_size = imgs.shape[0]
-        
+
         ## Update Generator network
         if optimizer_idx == 0:
             # Sample noise
@@ -106,12 +105,12 @@ class DCGAN(pl.LightningModule):
 
         ## train discriminator: Measure discriminator's ability to classify real from generated samples
         if optimizer_idx == 1:
-            
+
             self.netD.zero_grad()
 
             # 텐서에 행해지는 모든 연산에 대한 미분값을 계산
             imgs.requires_grad_()
-            
+
             # D(X) : Train with all-real batch: how well can it label as real?
             label_real = torch.full((b_size,), self.real_label, device=self.device)
             label_real = label_real.type_as(imgs)
@@ -131,8 +130,7 @@ class DCGAN(pl.LightningModule):
             # gradient_panelty = self.get_gradient_penelty(imgs ,pred_fake)
 
             # Zero-centered Gradient Panelty
-            zero_centered_gp= zeroCenteredGP(imgs, pred_real)
-
+            zero_centered_gp = zeroCenteredGP(imgs, pred_real)
 
             # discriminator loss is the average of these
             errD = (errD_real + errD_fake * zero_centered_gp) / 2
