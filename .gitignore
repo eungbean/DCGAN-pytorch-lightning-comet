@@ -1,20 +1,16 @@
 # Large Folders
 [BACKUP]/
-dataset/*
-output/logs/*
-output/predictions/*
-output/weights/*
-output/checkpoints/*
+*/dataset/*
+*/output/*
 nohup.out
 
 # Private files
 .comet.config
-wandb/
-.private/
+*/tools/logger/*.yaml
 
 # common IDEs folder
-.idea/
-.vscode/
+.idea
+.vscode
 *.pt
 
 # Byte-compiled / optimized / DLL files

@@ -26,5 +26,7 @@ rope
 #Eungbean's
 albumentations
 pytorch-lightning
+pytorch-lightning-bolts
 yacs
 comet_ml
+torchgan
