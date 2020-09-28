@@ -44,13 +44,14 @@ _C.INPUT.MEAN_STD_DIR       = str(DATASET_DIR / "img_mean_std")
 
 # OUTPUT
 OUTPUT_FOLDER              = _C.EXP_TITLE + '_' + _C.INPUT.DATASET + '_' + timestamp('%y%m%d_%H-%M-%S')
-OUTPUT_FOLDER              = _C.EXP_TITLE + '_' + _C.INPUT.DATASET + '_' + 'tmp'
+# OUTPUT_FOLDER              = _C.EXP_TITLE + '_' + _C.INPUT.DATASET + '_' + 'tmp'
 _C.OUTPUT = CN()
 _C.OUTPUT.LOG_DIR          = str(BASE_DIR / "output" / OUTPUT_FOLDER / "logs")
 _C.OUTPUT.CHECKPOINT_DIR   = str(BASE_DIR / "output" / OUTPUT_FOLDER / "checkpoints")
 _C.OUTPUT.PREDICTION_DIR   = str(BASE_DIR / "output" / OUTPUT_FOLDER / "predictions")
-_C.SAVE_CHECKPOINTS        = False  # True
-_C.SAVE_PREDICTIONS        = True
+_C.OUTPUT.SAVE_CHECKPOINTS = False  # True
+_C.OUTPUT.SAVE_PREDICTIONS = True
+_C.OUTPUT.SAVE_PRED_NORM   = False
 _C.EXP_ID                  = 9999  # 0~9999
 
 # Model
@@ -119,8 +120,8 @@ _C.DATALOADER.TEST_SHUFFLE   = True
 
 # Comet Logger
 _C.COMET = CN()
-_C.COMET.DISABLED       = True # Disable Commet for Test
-# _C.COMET.DISABLED       = False # Disable Commet for Test
+# _C.COMET.DISABLED       = True # Disable Commet for Test
+_C.COMET.DISABLED       = False # Disable Commet for Test
 _C.COMET.APIKEY         = "MY_COMET_APIKEY"
 _C.COMET.PROJECT_NAME   = "MY_COMET_PROJECT_NAME"   # OPTIONAL
 _C.COMET.WORKSPACE      = "MY_COMET_WORKSPACE"      # OPTIONAL

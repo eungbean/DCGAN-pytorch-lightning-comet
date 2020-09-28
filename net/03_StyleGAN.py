@@ -11,11 +11,13 @@ from data import CIFAR10
 from models import Generator
 from models import Discriminator
 from models.metrics.accuracy_CIFAR10 import accuracy
-from models.metrics.zeroCenteredGP import zeroCenteredGP
 
 from models.configs import load_default_config
 from tools.logger import get_comet_logger
-from models.callbacks import CometGenerativeModelImageSampler
+from models.callbacks import (
+    # CheckpointCallback,
+    CometGenerativeModelImageSampler,
+)
 from tools.utils import (
     weights_init,
     set_random_seed,
@@ -28,7 +30,7 @@ set_random_seed()
 
 # load configurations
 _C = load_default_config()
-_C.merge_from_file(os.path.join("models", "configs", "DCGAN-ZeroCenteredGP.yaml"))
+_C.merge_from_file(os.path.join("tools", "logger", "03_StyleGAN_CelebA.yaml"))
 _C.freeze()
 
 # Define Logger
@@ -46,11 +48,11 @@ This module houses:
 """
 
 
-class DCGAN(pl.LightningModule):
+class StyleGAN(pl.LightningModule):
 
     # 1. Model definition (__init__)
     def __init__(self):
-        super(DCGAN, self).__init__()
+        super(StyleGAN, self).__init__()
 
         # Define Network
         self.netG = Generator(_C)
@@ -106,34 +108,22 @@ class DCGAN(pl.LightningModule):
         ## train discriminator: Measure discriminator's ability to classify real from generated samples
         if optimizer_idx == 1:
 
-            self.netD.zero_grad()
-
-            # 텐서에 행해지는 모든 연산에 대한 미분값을 계산
-            imgs.requires_grad_()
-
-            # D(X) : Train with all-real batch: how well can it label as real?
+            # Train with all-real batch: how well can it label as real?
             label_real = torch.full((b_size,), self.real_label, device=self.device)
             label_real = label_real.type_as(imgs)
 
-            # D(G(z))
             pred_real = self.netD(imgs).view(-1)
             errD_real = self.adversarial_loss(pred_real, label_real)
 
-            # D(G(Z)) : Train with all-fake batch: how well can it label as fake?
+            # Train with all-fake batch: how well can it label as fake?
             label_fake = torch.full((b_size,), self.fake_label, device=self.device)
             label_fake = label_fake.type_as(imgs)
 
             pred_fake = self.netD(self.gen_img.detach()).view(-1)
             errD_fake = self.adversarial_loss(pred_fake, label_fake)
 
-            # # Gradient Panelty
-            # gradient_panelty = self.get_gradient_penelty(imgs ,pred_fake)
-
-            # Zero-centered Gradient Panelty
-            zero_centered_gp = zeroCenteredGP(imgs, pred_real)
-
             # discriminator loss is the average of these
-            errD = (errD_real + errD_fake * zero_centered_gp) / 2
+            errD = (errD_real + errD_fake) / 2
 
             # Accuracy metric
             d_acc_real = accuracy(pred_real, label_fake)
@@ -159,6 +149,27 @@ class DCGAN(pl.LightningModule):
 
             return output
 
+    # For templete
+    # def on_epoch_end(self):
+    # pass
+
+    # What happens inside the validation loop (validation_step)
+    # But, How do we define validation loop in GAN?
+
+    # def validation_step(self, batch, batch_idx, optimizer_idx):
+    #     pass # OPTIONAL
+
+    # def validation_epoch_end(self, outputs):
+    #     pass # OPTIONAL
+
+    # def test_step(self, batch, batch_nb):
+    #     pass # OPTIONAL
+
+    # def test_epoch_end(self, output):
+    #     pass #OPTIONAL
+
+    # What optimizer(s) to use (configure_optimizers)
+
     def configure_optimizers(self):
         optimizerD = Adam(
             self.netD.parameters(),
@@ -174,7 +185,11 @@ class DCGAN(pl.LightningModule):
 
 
 # Define model
-model = DCGAN()
+model = StyleGAN()
+
+# Log Graph and Parameter
+# comet_logger.experiment.set_model_graph(str(model))
+# comet_logger.experiment.log_parameters(_C)
 
 # Make Output Folders
 make_output_folders(_C)
@@ -184,6 +199,7 @@ trainer = pl.Trainer(
     min_epochs=1,
     max_epochs=_C.SOLVER.EPOCHS,
     logger=comet_logger,
+    # checkpoint_callback=CheckpointCallback,
     callbacks=[
         CometGenerativeModelImageSampler(_C, 100, comet_logger),
     ],
@@ -196,4 +212,4 @@ trainer.fit(
     CIFAR10(_C),
 )
 
-# trainer.save_checkpoint(os.path.join(_C.OUTPUT.CHECKPOINT_DIR, "DCGAN.ckpt")
+# trainer.save_checkpoint(os.path.join(_C.OUTPUT.CHECKPOINT_DIR, "StyleGAN.ckpt")

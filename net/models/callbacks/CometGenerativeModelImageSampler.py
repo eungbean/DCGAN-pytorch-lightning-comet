@@ -10,6 +10,7 @@ class CometGenerativeModelImageSampler(Callback):
         super().__init__()
         self.n_samples = n_samples
         self.NUM_Z = _C.MODEL.NUM_Z
+        self.SAVE_PRED_NORM = _C.OUTPUT.SAVE_PRED_NORM
 
         self.PREDICTION_DIR = _C.OUTPUT.PREDICTION_DIR
         self.comet_logger = logger
@@ -35,9 +36,8 @@ class CometGenerativeModelImageSampler(Callback):
             images = pl_module(self.z_log)
             pl_module.train()
 
+        # save original image
         save_img_grid(imgs=images, PREDICTION_DIR=self.PRED_DIR)
-        save_img_grid(imgs=images, PREDICTION_DIR=self.PRED_DIR_NORM, normalize=True)
-
         self.comet_logger.experiment.log_image(
             image_data=self.PRED_DIR_NORM,
             name="Training_normalized",
@@ -45,12 +45,17 @@ class CometGenerativeModelImageSampler(Callback):
             step=0,
         )
 
-        self.comet_logger.experiment.log_image(
-            image_data=self.PRED_DIR,
-            name="Training",
-            image_channels="first",
-            step=0,
-        )
+        # save normalized image
+        if self.SAVE_PRED_NORM:
+            save_img_grid(
+                imgs=images, PREDICTION_DIR=self.PRED_DIR_NORM, normalize=True
+            )
+            self.comet_logger.experiment.log_image(
+                image_data=self.PRED_DIR,
+                name="Training",
+                image_channels="first",
+                step=0,
+            )
 
     def on_epoch_end(self, trainer, pl_module):
 
@@ -69,22 +74,26 @@ class CometGenerativeModelImageSampler(Callback):
             images = pl_module(self.z_log)
             pl_module.train()
 
-        save_img_grid(imgs=images, PREDICTION_DIR=self.PRED_DIR_NORM, normalize=True)
+        # save original image
         save_img_grid(imgs=images, PREDICTION_DIR=self.PRED_DIR, normalize=False)
-
-        self.comet_logger.experiment.log_image(
-            image_data=self.PRED_DIR_NORM,
-            name="Training_normalized",
-            image_channels="first",
-            step=pl_module.trainer.model.current_epoch + 1,
-        )
-
         self.comet_logger.experiment.log_image(
             image_data=self.PRED_DIR,
             name="Training",
             image_channels="first",
             step=pl_module.trainer.model.current_epoch + 1,
         )
+
+
+        # save normalized image
+        if self.SAVE_PRED_NORM:
+            save_img_grid(imgs=images, PREDICTION_DIR=self.PRED_DIR_NORM, normalize=True)
+            self.comet_logger.experiment.log_image(
+                image_data=self.PRED_DIR_NORM,
+                name="Training_normalized",
+                image_channels="first",
+                step=pl_module.trainer.model.current_epoch + 1,
+            )
+
 
 
 def save_img_grid(imgs, PREDICTION_DIR, normalize=False):

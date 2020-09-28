@@ -1,0 +1,8 @@
+EXP_TITLE: "StyleGAN-CelebA"
+
+COMET:
+    PROJECT_NAME: "StyleGAN"
+
+INPUT:
+    DATASET: "CELEBA"
+    IMGSIZE: 64

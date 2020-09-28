@@ -41,12 +41,12 @@ def make_output_folders(_C):
     folders = [
         _C.OUTPUT.LOG_DIR,
     ]
-    if _C.SAVE_CHECKPOINTS:
+    if _C.OUTPUT.SAVE_CHECKPOINTS:
         folders.append(_C.OUTPUT.CHECKPOINT_DIR)
-    if _C.SAVE_PREDICTIONS:
+    if _C.OUTPUT.SAVE_PREDICTIONS:
         folders.append(_C.OUTPUT.PREDICTION_DIR)
 
-    if _C.SAVE_PREDICTIONS:
+    if _C.OUTPUT.SAVE_PRED_NORM:
         folders.append(_C.OUTPUT.PREDICTION_DIR + "_norm")
 
     for folder in folders:

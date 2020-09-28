@@ -3,7 +3,7 @@ from pytorch_lightning.callbacks import ModelCheckpoint
 
 # DEFAULTS used by the Trainer
 def CheckpointCallback(_C):
-    if _C.SAVE_CHECKPOINTS:
+    if _C.OUTPUT.SAVE_CHECKPOINTS:
         checkpoint_callback = ModelCheckpoint(
             filepath=str(_C.OUTPUT.CHECKPOINT_DIR),
             save_top_k=1,

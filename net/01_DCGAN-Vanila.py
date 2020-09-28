@@ -30,7 +30,7 @@ set_random_seed()
 
 # load configurations
 _C = load_default_config()
-_C.merge_from_file(os.path.join("tools", "logger", "dcgan-vanila.yaml"))
+_C.merge_from_file(os.path.join("tools", "logger", "01_DCGAN-vanila.yaml"))
 _C.freeze()
 
 # Define Logger
